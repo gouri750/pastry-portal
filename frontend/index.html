@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pastry Order</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="dashboard">
+      <button class="dashboard-btn">☰</button>
+      <div class="dashboard-menu">
+        <a href="#" onclick="showAboutUs()">About Us</a>
+        <a href="#" onclick="showLoginModal()">Account</a>
+        <button onclick="showRegister()">Register</button>
+      </div>
+    </div>
+
+    <h1>Sweet Bites</h1>
+    <p>Order Your Favorite Pastries Online!</p>
+  </header>
+
+  <main>
+    <section class="menu">
+      <h2>Our Pastries</h2>
+      <div class="pastry-list">
+        <!-- Individual pastries -->
+        <div class="pastry-item">
+          <img src="https://patelbakery.in/wp-content/uploads/2021/06/chocolate-pastry-2-new.jpg" alt="Chocolate Pastry">
+          <h3>Chocolate Pastry</h3>
+          <p>₹399.20</p>
+          <div class="button-container">
+          <button onclick="addToCart('Chocolate Pastry', 399.20)">Add to Cart</button>
+          <button class="healthier-btn" onclick="showHealthierOption('Chocolate Pastry', 50)">Healthier Option</button>
+        </div>
+        </div>
+        <div class="pastry-item">
+          <img src="https://i.pinimg.com/originals/08/ef/e3/08efe3f495a2641e166976ecf71c6334.jpg" alt="Strawberry Pastry">
+          <h3>Strawberry Pastry</h3>
+          <p>₹439.20</p>
+          <div class="button-container">
+          <button onclick="addToCart('Strawberry Pastry', 439.20)">Add to Cart</button>
+          <button class="healthier-btn" onclick="showHealthierOption('Strawberry Pastry', 50)">Healthier Option</button>
+        </div>
+        </div>
+        <div class="pastry-item">
+          <img src="vanillaPastry.jpg" alt="Vanilla Pastry">
+          <h3>Vanilla Pastry</h3>
+          <p>₹383.20</p>
+          <div class="button-container">
+          <button onclick="addToCart('Vanilla Pastry', 383.20)">Add to Cart</button>
+          <button class="healthier-btn" onclick="showHealthierOption('Vanilla Pastry', 50)">Healthier Option</button>
+        </div>
+        </div>
+        <div class="pastry-item">
+          <img src="saltedCaramel.jpg" alt="Salted Caramel Pastry">
+          <h3>Salted Caramel Pastry</h3>
+          <p>₹399.20</p>
+          <div class="button-container">
+          <button onclick="addToCart('Salted Caramel Pastry', 399.20)">Add to Cart</button>
+          <button class="healthier-btn" onclick="showHealthierOption('Salted Caramel Pastry', 50)">Healthier Option</button>
+        </div>
+        </div>
+        <div class="pastry-item">
+          <img src="irishCoffee.jpg" alt="Irish Coffee Pastry">
+          <h3>Irish Coffee Pastry</h3>
+          <p>₹399.20</p>
+          <div class="button-container">
+          <button onclick="addToCart('Irish Coffee Pastry', 399.20)">Add to Cart</button>
+          <button class="healthier-btn" onclick="showHealthierOption('Irish Coffee Pastry', 50)">Healthier Option</button>
+        </div>
+        </div>
+        <div class="pastry-item">
+          <img src="matcha.jpg" alt="Matcha Pastry">
+          <h3>Matcha Pastry</h3>
+          <p>₹399.20</p>
+          <div class="button-container">
+          <button onclick="addToCart('Matcha Pastry', 399.20)">Add to Cart</button>
+          <button class="healthier-btn" onclick="showHealthierOption('Matcha Pastry', 50)">Healthier Option</button>
+        </div>
+        </div>
+        <div class="pastry-item">
+          <img src="dubaiKunafa.jpg" alt="Dubai Khunafa Pastry">
+          <h3>Dubai Khunafa Pastry</h3>
+          <p>₹399.20</p>
+          <div class="button-container">
+          <button onclick="addToCart('Dubai Khunafa Pastry', 399.20)">Add to Cart</button>
+          <button class="healthier-btn" onclick="showHealthierOption('Dubai Khunafa Pastry', 50)">Healthier Option</button>
+        </div>
+        </div>
+        <div class="pastry-item">
+          <img src="fereroRocher.jpg" alt="Ferrero Rocher Pastry">
+          <h3>Ferrero Rocher Pastry</h3>
+          <p>₹399.20</p>
+          <div class="button-container">
+          <button onclick="addToCart('Ferrero Rocher Pastry', 399.20)">Add to Cart</button>
+          <button class="healthier-btn" onclick="showHealthierOption('Ferrero Rocher Pastry', 50)">Healthier Option</button>
+        </div>
+        </div>
+        <div class="pastry-item">
+          <img src="blueberryCheesecake.jpg" alt="Blueberry Cheesecake">
+          <h3>Blueberry Cheesecake</h3>
+          <p>₹399.20</p>
+          <div class="button-container">
+          <button onclick="addToCart('Blueberry Cheesecake', 399.20)">Add to Cart</button>
+          <button class="healthier-btn" onclick="showHealthierOption('Blueberry Cheesecake Pastry', 50)">Healthier Option</button>
+        </div>
+        </div>
+        
+      </div>
+    </section>
+    <!-- <button onclick="clearCart()">Clear Cart</button> -->
+
+
+    <section class="cart">
+      <h2>Your Cart</h2>
+      <ul id="cart-items"></ul>
+      <p id="total-price">Total: ₹0.00</p>
+      <div class="cart-actions">
+        <button class="cart-btn" onclick="clearCart()">Clear Cart</button>
+        <button class="cart-btn" onclick="checkout()">Checkout</button>
+      </div>
+      
+      
+    </section>
+  </main>
+
+  <!-- Inside your body tag, just above the footer -->
+<div id="login-modal" class="modal">
+  <div class="modal-content">
+    <h2>Login</h2>
+    <form id="login-form">
+      <label for="gmail">Gmail ID:</label>
+      <input type="email" id="gmail" name="gmail" required placeholder="Enter your Gmail ID">
+      
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required placeholder="Enter your password">
+      
+      <button type="submit">Login</button>
+      <button type="button" onclick="closeLoginModal()">Cancel</button>
+    </form>
+  </div>
+</div>
+ 
+<div id="register-modal" class="modal">
+  <div class="modal-content">
+    <h2>Register</h2>
+    <form id="register-form" onsubmit="return validateRegistration()">
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email" required><br>
+
+      <label for="first-name">First Name:</label>
+      <input type="text" id="first-name" name="first-name" required><br>
+
+      <label for="last-name">Last Name:</label>
+      <input type="text" id="last-name" name="last-name" required><br>
+
+      <label for="mobile-number">Mobile Number:</label>
+      <input type="tel" id="mobile-number" name="mobile-number" pattern="[0-9]{10}" placeholder="1234567890" required><br>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required><br>
+
+      <label for="confirm-password">Confirm Password:</label>
+      <input type="password" id="confirm-password" name="confirm-password" required><br>
+
+      <button type="submit">Sign Up</button>
+      <button type="button" onclick="closeRegisterModal()">Cancel</button>
+    </form>
+  </div>
+</div>
+
+  <footer>
+    <p>© 2025 Sweet Bites. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+
+  <div id="popup-modal" class="modal">
+    <div class="modal-content">
+      <p id="popup-message"></p>
+      <button onclick="closePopup()">OK</button>
+    </div>
+  </div>
+  
+</body>
+</html>

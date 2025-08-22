@@ -1,0 +1,64 @@
+<!-- order-details.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Details</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Sweet Bites</h1>
+    <p>Your Order Details</p>
+  </header>
+
+  <main>
+    <section class="order-summary">
+      <h2>Thank You for Your Order!</h2>
+      <p>Your order has been successfully placed.</p>
+      <h3>Order Summary</h3>
+      <ul id="order-items"></ul>
+      <p id="order-total"></p>
+    </section>
+
+    <section class="payment-method">
+      <h3>Select Payment Method</h3>
+      <form id="payment-form">
+        <label for="payment-method">Choose a payment method:</label>
+        <select id="payment-method">
+          <option value="credit-card">Credit Card</option>
+          <option value="debit-card">Debit Card</option>
+          <option value="paypal">PayPal</option>
+        </select>
+        <button onclick="proceedPayment()">Proceed Payment</button>
+
+      </form>
+    </section>
+  </main>
+
+  <!-- Modal for star rating -->
+<div id="rating-modal" class="modal">
+  <div class="modal-content">
+    <h2>Rate Your Experience</h2>
+    <p>Please rate us from 1 to 5 stars:</p>
+    <div id="star-rating">
+      <span class="star" data-value="1">&#9733;</span>
+      <span class="star" data-value="2">&#9733;</span>
+      <span class="star" data-value="3">&#9733;</span>
+      <span class="star" data-value="4">&#9733;</span>
+      <span class="star" data-value="5">&#9733;</span>
+    </div>
+    <button onclick="submitRating()">Submit</button>
+    <button type="button" onclick="closeRatingModal()">Cancel</button>
+  </div>
+</div>
+
+
+  <footer>
+    <p>© 2025 Sweet Bites. All rights reserved.</p>
+  </footer>
+
+  <script src="order-details.js"></script>
+</body>
+</html>
